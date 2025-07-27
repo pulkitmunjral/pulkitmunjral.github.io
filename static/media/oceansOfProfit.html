@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧿 Oceans of Profit 🧿</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      margin-top: 100px;
+      background-color: rgba(126, 116, 116, 0.8);
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ffffff;
+    }
+    input[type="text"], input[type="password"], select, textarea {
+      width: 92%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #cac2c2;
+      border: 1px solid #322e2e;
+      border-radius: 3px;
+    }
+    select {
+      height: 150px;
+    }
+    button {
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .success-alert {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    #mainContent { display: none; }
+    #error { color: red; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container" id="passwordPrompt">
+    <h2>Welcome to</h2> <h2>🧿 Oceans of Profit Bot 🧿</h2>
+    <h2>Enter Password</h2>
+    <input type="password" id="passwordInput" />
+    <button onclick="checkPassword()">Submit</button>
+    <p id="error"></p>
+  </div>
+
+  <div class="container" id="mainContent">
+    <h2>🧿 Oceans of Profit Bot 🧿</h2>
+    <form id="myForm">
+      <label for="headline">Headline:</label>
+      <input type="text" id="headline" name="headline" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" cols="57" rows="5"></textarea>
+
+      <input type="file" id="imageInput" name="imageInput">
+
+      <label for="options">Select Channels:</label>
+      <label>Select All: <input type="checkbox" id="selectAll"></label>
+
+      <select id="options" name="options[]" multiple>
+        <option value="-1002441832493" style="color: #ffffff;">🧿🧿OCEANS OF PROFIT TRIAL🧿🧿</option>
+        <option value="-1002871965125" style="color: #ffffff;">🧿OCEANS OF PROFIT TRIAL🧿</option>
+
+        <option value="-1002704620071" style="color: #ffffff;">OCEANS OF PROFIT 🧿 TRIAL</option>
+        <option value="-1002690198079" style="color: #ffffff;">OCEANS OF PROFIT 🧿🧿 TRIAL</option>
+        <option value="-1002803788085" style="color: #ffffff;">OCEANS OF PROFIT TRIAL🧿🧿</option>
+        <option value="-1002776467519" style="color: #ffffff;">🧿🧿OCEANS OF PROFIT TRIAL</option>
+
+        <option value="-1002840330694" style="color: #ffffff;">🧿 OCEANS OF PROFIT TRIAL</option>
+        <option value="-1002553003025" style="color: #ffffff;">OCEANS OF PROFIT TRIAL 🧿</option>
+        <option value="-1002797913902" style="color: #ffffff;">OCEANS OF PROFIT TRIAL🧿🧿🧿</option>
+
+        <option value="-1002868706492" style="color: #ffffff;">🧿OCEANS OF PROFIT TRIAL🧿🧿</option>
+        <option value="-1002769613272" style="color: #ffffff;">🧿🧿🧿OCEANS OF PROFIT TRIAL</option>
+        <option value="-1002575924914" style="color: #ffffff;">🧿🧿OCEANS OF PROFIT TRIAL🧿</option>
+        <option value="-1002862059347" style="color: #ffffff;">🧿🧿🧿OCEANS OF PROFIT TRIAL🧿</option>
+    </select>
+
+      <button type="button" id="submitBtn">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const correctPassword = "Gtop*2255#"; // Set your desired password here
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === correctPassword) {
+        document.getElementById("passwordPrompt").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+      } else {
+        document.getElementById("error").textContent = "Incorrect password. Try again.";
+      }
+    }
+
+    document.getElementById('selectAll').addEventListener('change', function () {
+      const select = document.getElementById('options');
+      for (let i = 0; i < select.options.length; i++) {
+        select.options[i].selected = this.checked;
+      }
+    });
+
+    window.onload = function () {
+      const selectAll = document.getElementById('selectAll');
+      const select = document.getElementById('options');
+      selectAll.checked = true;
+      for (let i = 0; i < select.options.length; i++) {
+        select.options[i].selected = true;
+      }
+    };
+
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      const headline = document.getElementById('headline').value;
+      const message = document.getElementById('message').value;
+      const imageInput = document.getElementById('imageInput');
+      const imageFile = imageInput.files[0];
+      const options = Array.from(document.querySelectorAll('#options option:checked')).map(option => option.value);
+      const totalMessages = options.length;
+      let messagesSent = 0;
+
+      options.forEach(function (option) {
+        const telegramUrl = "https://api.telegram.org/bot8272993368:AAGA6x2-rz5rlffjmjLYeHIYSLbvXLREI2Q/";
+
+        if (imageFile) {
+          const formData = new FormData();
+          formData.append("chat_id", option);
+          formData.append("caption", `<b><u>${headline}</u>\n ${message}</b>`);
+          formData.append("parse_mode", "HTML");
+          formData.append("photo", imageFile);
+
+          fetch(telegramUrl + "sendPhoto", {
+            method: 'POST',
+            body: formData
+          });
+        } else {
+          const url = telegramUrl + "sendMessage?chat_id=" + encodeURIComponent(option) +
+                      "&text=" + encodeURIComponent(`<b><u>${headline}</u>\n ${message}</b>`) +
+                      "&parse_mode=HTML";
+          fetch(url)
+            .then(response => response.json())
+            .catch(error => {
+              console.error('There was a problem with the Telegram API request:', error);
+            });
+        }
+        messagesSent++;
+      });
+
+      if (messagesSent === totalMessages) {
+        document.getElementById('message').value = "";
+        document.getElementById('headline').value = "";
+        document.getElementById('imageInput').value = "";
+      }
+    });
+  </script>
+</body>
+</html>
