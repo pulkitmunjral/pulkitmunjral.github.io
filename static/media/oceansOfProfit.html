@@ -167,7 +167,7 @@
           });
         } else {
           const url = telegramUrl + "sendMessage?chat_id=" + encodeURIComponent(option) +
-                      "&text=" + encodeURIComponent(`<b>${headline}/b>\n ${message}`) +
+                      "&text=" + encodeURIComponent(`<b>${headline}</b>\n ${message}`) +
                       "&parse_mode=HTML";
           fetch(url)
             .then(response => response.json())
